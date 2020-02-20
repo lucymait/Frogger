@@ -4,10 +4,12 @@
 
 header {
   padding: 0px 0px 10px 0px;
+  align-items: center;
 }
 
 img {
   padding: 0px 0px 10px 0px;
+  align-items: center;
 }
 
 body {
@@ -44,52 +46,45 @@ body {
 
 .scoreBoard {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: space-around;
-  float: left;
   text-align: center;
   font-family: 'VT323', monospace;
   color: #FFDD1B;
   text-shadow: 0 0 5px #000, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B;
   font-size: 10px;
-  width: 250px;
+  width: 205px;
   padding: 50px;
   border-radius: 0 30px 30px 0;
 }
 
 p {
   display: block;
-  float: left;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  text-align: center;
 }
 
 .scoreBoard p {
   background-image: linear-gradient(to bottom right, #000, #666);
   box-shadow: inset 0px 11px 8px -10px #666, inset 0px -11px 8px -10px #666;
-  padding: 10px 30px;
+  padding: 10px 10px;
   border-radius: 10px;
-  animation: textShadow 1.6s infinite;
-  float: left;
+  /* animation: textShadow 1.6s infinite; */
 }
 
 .grid {
   display: flex;
   flex-direction: row;
   border: 1px solid grey;
-  width: 400px;
-  height: 400px;
+  width: 450px;
+  height: 450px;
   flex-wrap: wrap;
-  background-color: white;
+  background-color: rgb(101, 124, 60);
+  opacity: 0.9;
 }
 
 .cell {
   width: 10%;
   height: 10%;
-  border: 1px solid palevioletred;
+  border: 1px solid black;
 }
 
 .panther1 {
@@ -112,9 +107,13 @@ p {
   background-size: cover;
 }
 
-.car1 {
+.car {
   background-image: url('https://img.icons8.com/plasticine/2x/car.png');
   background-size: cover;
+}
+/* 
+.car1 {
+  
 }
 
 .car2 {
@@ -125,14 +124,16 @@ p {
 .car3 {
   background-image: url('https://img.icons8.com/plasticine/2x/car.png');
   background-size: cover;
-}
+} */
 
-.shark1 {
+
+
+.shark {
   background-image: url('https://cdn4.iconfinder.com/data/icons/nuuline-fill-animals/150/animal_head_face_cartoon-21-512.png');
   background-size: cover;
 }
 
-.shark2 {
+/* .shark2 {
   background-image: url('https://cdn4.iconfinder.com/data/icons/nuuline-fill-animals/150/animal_head_face_cartoon-21-512.png');
   background-size: cover;
 }
@@ -145,13 +146,13 @@ p {
 .shark4 {
   background-image: url('https://cdn4.iconfinder.com/data/icons/nuuline-fill-animals/150/animal_head_face_cartoon-21-512.png');
   background-size: cover;
-}
+} */
 
 .snake1 {
   background-image: url('https://cdn4.iconfinder.com/data/icons/nuuline-fill-animals/150/animal_head_face_cartoon-23-512.png');
   background-size: cover;
 }
-/* 
+
 .snake2 {
   background-image: url('https://cdn4.iconfinder.com/data/icons/nuuline-fill-animals/150/animal_head_face_cartoon-23-512.png');
   background-size: cover;
@@ -160,4 +161,34 @@ p {
 .snake3 {
   background-image: url('https://cdn4.iconfinder.com/data/icons/nuuline-fill-animals/150/animal_head_face_cartoon-23-512.png');
   background-size: cover;
-} */
+} 
+
+.snake4 {
+  background-image: url('https://cdn4.iconfinder.com/data/icons/nuuline-fill-animals/150/animal_head_face_cartoon-23-512.png');
+  background-size: cover;
+} 
+
+.snake5 {
+  background-image: url('https://cdn4.iconfinder.com/data/icons/nuuline-fill-animals/150/animal_head_face_cartoon-23-512.png');
+  background-size: cover;
+} 
+
+.house1 {
+  background-image: url('https://www.stickpng.com/assets/thumbs/588a66aad06f6719692a2d1d.png');
+  background-size: cover;
+}
+
+.house2 {
+  background-image: url('https://www.stickpng.com/assets/thumbs/588a66aad06f6719692a2d1d.png');
+  background-size: cover;
+}
+
+.house3 {
+  background-image: url('https://www.stickpng.com/assets/thumbs/588a66aad06f6719692a2d1d.png');
+  background-size: cover;
+}
+
+.house4 {
+  background-image: url('https://www.stickpng.com/assets/thumbs/588a66aad06f6719692a2d1d.png');
+  background-size: cover;
+}
