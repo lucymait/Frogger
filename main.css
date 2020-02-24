@@ -25,69 +25,113 @@ body {
 .game {
 }
 
-.buttons {
+h4 {
+  font-family: 'Port Lligat Sans';
+  font-weight: bold;
+  text-align: center;
+  font-size: 28px;
+  margin: 5px;
+  border: 5px;
+  padding: 5px;
+  color: black;
+  background-color: rgb(240, 86, 111);
+}
+
+p {
+  font-family: 'Port Lligat Sans';
+  padding: 5px;
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  color: black;
+
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  margin: 20px;
+  border: 20px;
+  border-radius: 5px 5px 5px 5px;
+  width: 280px;
+  height: 440px;
+  background-image: url('https://i.pinimg.com/originals/9e/0e/90/9e0e903af2fefc1e8c294af74802312f.jpg');
+  background-size: cover;
+  opacity: 0.8;
+}
+
+.scoreBoard button {
+  /* background-color: lightpink;
+  color: rgb(240, 86, 111); */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  opacity: 1.6;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 25px;
+  text-align: center;
+  font-family: 'Port Lligat Sans';
+  border: 6px solid rgb(240, 86, 111);
+  background-color: lightpink;
+  color: black;
+  padding: 15px;
+  opacity: 1.0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  justify-content: flex-start;
   padding: 5px;
   margin: 20px;
   border: 20px;
   border-radius: 5px 5px 5px 5px;
   width: 230px;
   height: 350px;
-  background-image: url('https://i.pinimg.com/originals/9e/0e/90/9e0e903af2fefc1e8c294af74802312f.jpg');
-  background-size: cover;
-  opacity: 0.8;
 }
 
-.buttons button {
-  padding: 5px;
-  border: 6px solid rgb(240, 86, 111);
-  /* box-shadow: 2px 5px 5px #000, 0 0 5px #fff, 0 0 10px rgb(230, 89, 166), 0 0 15px rgb(230, 89, 166), 0 0 20px rgb(230, 89, 166), 0 0 30px rgb(230, 89, 166), inset 2px 5px 5px #000, inset 0 0 10px rgb(230, 89, 166); */
-  border-radius: 10px;
-  background-color: lightpink;
-  font-family: 'Port Lligat Sans';
-  font-size: 15px;
-  font-weight: bold;
-  padding: 10px;
-  color: rgb(240, 86, 111);
-  text-align: center;
-}
 
 .scoreBoard {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
   border-radius: 5px 5px 5px 5px;
   padding: 5px;
   margin: 20px;
   background-image: url('https://i.pinimg.com/originals/9e/0e/90/9e0e903af2fefc1e8c294af74802312f.jpg');
   background-size: cover;
-  width: 230px;
-  height: 350px;
+  width: 280px;
+  height: 440px;
   opacity: 0.8;
 }
 
-.startButton {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.resetButton {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
 
 .scoreBoard p {
   /* padding: 15px 15px;
   border-radius: 10px; */
 }
 
+.result {
+  /* float: right; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 #playerScore {
   background-color: lightpink;
   border: 6px solid rgb(240, 86, 111);
   font-family: 'Port Lligat Sans';
-  color: rgb(240, 86, 111);
-  font-size: 15px;
+  color: black;
+  font-size: 20px;
   font-weight: bold;
   font-family: 'Port Lligat Sans';
   text-align: center;
@@ -98,8 +142,8 @@ body {
 #playerLives {
   background-color: lightpink;
   border: 6px solid rgb(240, 86, 111);
-  color: rgb(240, 86, 111);
-  font-size: 15px;
+  color: black;
+  font-size: 20px;
   font-weight: bold;
   font-family: 'Port Lligat Sans';
   text-align: center;

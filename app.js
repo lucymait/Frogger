@@ -94,11 +94,14 @@ function setupGame() {
       if (cells[panther1 - width].classList.contains('house')) {
         cells[panther1].classList.remove('panther1')
         panther1 -= width
-        cells[panther1].classList.remove('house') 
-        cells[panther1].classList.add('panther1') 
+        cells[panther1].classList.remove('house')
+        cells[panther1].classList.add('panther1')
         score += 100
         playerScore.innerHTML = `Score: ${score}`
         if (score >= 400) {
+          alert(`You win! Final score ${score}`)
+          window.location.reload()
+          panther1 = 188
           return
         }
         panther1 = 188
@@ -111,7 +114,7 @@ function setupGame() {
         cells[panther1].classList.add('panther1')
       }
 
-      
+
     } else if (event.key === 'ArrowDown') {
       audio.play()
       if (panther1 > cells.length - width - 1) {
@@ -175,6 +178,7 @@ function setupGame() {
       }
     }, 500)
 
+
     function collission() {
       if (cars1Array.includes(panther1) || cars2Array.includes(panther1) || snakesArray.includes(panther1) || sharksArray.includes(panther1) || palmtreeArray.includes(panther1)) {
         lives -= 1
@@ -184,12 +188,16 @@ function setupGame() {
         panther1 = 188
         cells[panther1].classList.add('panther1')
       }
-  
       if (lives === 0) {
-        clearInterval(firstIntervalId)
-        alert(`Final score ${score}`)
-        return
-        //put outside this function
+        // setTimeout(function() {
+        play = confirm(`Your score is ${score}. Do you want to play again? `)
+        if (play === true) {
+          clearInterval(collissionIntervalId)
+          window.location.reload()
+        }
+
+        // }, 300)
+
       }
     }
 

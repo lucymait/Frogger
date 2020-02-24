@@ -12,19 +12,27 @@
 <body>
   <header><img src="https://i.ya-webdesign.com/images/pink-panther-logo-png-1.png" alt="title" width="300px" height="180px"></header>
   <div class="game">
-    <div class="buttons">
-      <!-- <h4>Instructions</h4> -->
-      <button class="startButton">Start<audio id="audio1"></audio></button>
-      <button class="resetButton">Reset</button>
+    <div class="instructions">
+      <h4>HOW TO PLAY</h4>
+      <p>🌷 Guide 4 pink panthers to their homes; across the road, river and grass  <br>🌷 Watch out for the moving obstacles!  <br> 🌷 Use the arrow keys to move the panther.  <br> 🌷 To start each panther click the 'Arrow Up' key.
+      </p>
+      <!-- <p>Watch out for the moving obstacles! </p>
+      <p>Use the arrow keys to move the panther</p> -->
     </div>
     <div class="grid"></div>
     <div class="scoreBoard">
-      <p id="playerScore"> Score<br>
-      <span>0</span>
-      </p>
-      <p id="playerLives"> Lives<br>
-        <span>3</span>
-        </p>
+        <div class="buttons">
+          <button class="startButton">Start<audio id="audio1"></audio></button>
+          <button class="nextLevel">Next Level</button>
+        </div>
+        <div class="result">
+          <p id="playerScore"> Score<br>
+            <span>0</span>
+          </p>
+          <p id="playerLives"> Lives<br>
+            <span>3</span>
+          </p>
+        </div>
     </div>
   </div>
   <audio id="click" src="sounds/click.wav"></audio>
