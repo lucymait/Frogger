@@ -1,7 +1,5 @@
 function setupGame() {
 
-
-  //const & let
   const width = 14
   const gridCellCount = width * width
   const grid = document.querySelector('.grid')
@@ -9,6 +7,7 @@ function setupGame() {
   const startButton = document.querySelector('.startButton')
   const playerLives = document.querySelector('#playerLives')
   const playerScore = document.querySelector('#playerScore')
+  const audio = document.querySelector('#click')
   let cars1Array = [126, 129, 133, 137]
   let cars2Array = [154, 157, 161, 165]
   let sharksArray = [70, 73, 75, 77, 79, 82]
@@ -22,13 +21,12 @@ function setupGame() {
   let panther1 = 188
   let lives = 3
   let score = 0
+  let count = 0
+  let play = true
   // cells.id = i
-  // let panther2 = 95
-  // let panther3 = 95
-  // let panther4 = 95
 
 
-  // adding class to grid (car, shark, snake, panther, styles)
+  // adding classes to grid (car, shark, snake, panther, styles)
   for (let i = 0; i < gridCellCount; i++) {
     const cell = document.createElement('div')
     cell.classList.add('cell')
@@ -70,45 +68,52 @@ function setupGame() {
     grid.appendChild(cell)
   }
 
-  // function for score
-  function scoreKeeper() {
-    // console.log('winner')
-  }
 
   // Event Listener for keys
   document.addEventListener('keydown', (event) => {
-
-    const arrowAudio = document.querySelector('keydown')
-    // audio.src = 'sounds/click.mp3'
-    // keydown.play()
-
     if (event.key === 'ArrowRight') {
-      collission()
+      audio.play()
       if (panther1 === cells.length - 1) {
         return
       }
       cells[panther1].classList.remove('panther1')
       panther1 += 1
       cells[panther1].classList.add('panther1')
+
     } else if (event.key === 'ArrowLeft') {
-      // checkCollission()
+      audio.play()
       if (panther1 === 0) {
         return
       }
       cells[panther1].classList.remove('panther1')
       panther1 -= 1
       cells[panther1].classList.add('panther1')
+
     } else if (event.key === 'ArrowUp') {
-      scoreKeeper()
-      // checkCollission()
-      if (panther1 < width) {
-        return
+      audio.play()
+      if (cells[panther1 - width].classList.contains('house')) {
+        cells[panther1].classList.remove('panther1')
+        panther1 -= width
+        cells[panther1].classList.remove('house') 
+        cells[panther1].classList.add('panther1') 
+        score += 100
+        playerScore.innerHTML = `Score: ${score}`
+        if (score >= 400) {
+          return
+        }
+        panther1 = 188
+      } else {
+        if (panther1 < width) {
+          return
+        }
+        cells[panther1].classList.remove('panther1')
+        panther1 -= width
+        cells[panther1].classList.add('panther1')
       }
-      cells[panther1].classList.remove('panther1')
-      panther1 -= width
-      cells[panther1].classList.add('panther1')
+
+      
     } else if (event.key === 'ArrowDown') {
-      // checkCollission()
+      audio.play()
       if (panther1 > cells.length - width - 1) {
         return
       }
@@ -122,17 +127,12 @@ function setupGame() {
   // for loop for moving car, snake & shark (ensuring they loop back to original cell once hitting right wall)
 
   startButton.addEventListener('click', () => {
-
     const audio1 = document.querySelector('#audio1')
     const playButton = document.querySelector('#themesong')
     audio1.src = 'sounds/themesong.mp3'
     audio1.play()
 
-
-    let count = 0
-
-    const firstintervalID = setInterval(() => {
-
+    const firstIntervalId = setInterval(() => {
       for (let i = 0; i < cars1Array.length; i++) {
         if (cars1Array[i] === 139) {
           cells[cars1Array[i]].classList.remove('car')
@@ -143,7 +143,6 @@ function setupGame() {
         cars1Array[i]++
         cells[cars1Array[i]].classList.add('car')
       }
-
       for (let i = 0; i < cars2Array.length; i++) {
         if (cars2Array[i] === 167) {
           cells[cars2Array[i]].classList.remove('car')
@@ -154,7 +153,6 @@ function setupGame() {
         cars2Array[i]++
         cells[cars2Array[i]].classList.add('car')
       }
-
       for (let i = 0; i < sharksArray.length; i++) {
         if (sharksArray[i] === 83) {
           cells[sharksArray[i]].classList.remove('shark')
@@ -165,7 +163,6 @@ function setupGame() {
         sharksArray[i]++
         cells[sharksArray[i]].classList.add('shark')
       }
-
       for (let i = 0; i < snakesArray.length; i++) {
         if (snakesArray[i] === 41) {
           cells[snakesArray[i]].classList.remove('snake')
@@ -176,31 +173,34 @@ function setupGame() {
         snakesArray[i]++
         cells[snakesArray[i]].classList.add('snake')
       }
-
-      function collission() {
-
-        const secondintervalID = setInterval(() => {
-          if (cells.classList.contains('car' || 'panther1')) {
-            lives -= 1
-            playerLives.innerHTML = `Lives: ${lives}`
-            cells.classList.remove('panther1')
-          }
-    
-          if (lives === 0) {
-            clearInterval(secondintervalId)
-            play = confirm(`Your score is ${score}. Do you want to play again? `)
-            if (play === true) {
-              window.localStorage.reload(true)
-            }
-          }
-        })
-      }
-
     }, 500)
+
+    function collission() {
+      if (cars1Array.includes(panther1) || cars2Array.includes(panther1) || snakesArray.includes(panther1) || sharksArray.includes(panther1) || palmtreeArray.includes(panther1)) {
+        lives -= 1
+        playerLives.innerHTML = `Lives: ${lives}`
+        cells[panther1].classList.remove('panther1')
+        audio.play()
+        panther1 = 188
+        cells[panther1].classList.add('panther1')
+      }
+  
+      if (lives === 0) {
+        clearInterval(firstIntervalId)
+        alert(`Final score ${score}`)
+        return
+        //put outside this function
+      }
+    }
+
+    const collissionIntervalId = setInterval(() => {
+      collission()
+    }, 1)
 
   })
 
 }
+
 
 
 window.addEventListener('DOMContentLoaded', setupGame)

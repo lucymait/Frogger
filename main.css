@@ -22,59 +22,100 @@ body {
   background-size: cover;
 }
 
+.game {
+}
+
 .buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
-  float: left;
-  padding: 50px;
-  border-radius: 30px 0 0 30px;
-  width: 250px;
-  height: 250px
+  padding: 5px;
+  margin: 20px;
+  border: 20px;
+  border-radius: 5px 5px 5px 5px;
+  width: 230px;
+  height: 350px;
+  background-image: url('https://i.pinimg.com/originals/9e/0e/90/9e0e903af2fefc1e8c294af74802312f.jpg');
+  background-size: cover;
+  opacity: 0.8;
 }
 
 .buttons button {
-  padding: 15px 15px;
-  border: 4px solid rgb(240, 86, 111);
+  padding: 5px;
+  border: 6px solid rgb(240, 86, 111);
   /* box-shadow: 2px 5px 5px #000, 0 0 5px #fff, 0 0 10px rgb(230, 89, 166), 0 0 15px rgb(230, 89, 166), 0 0 20px rgb(230, 89, 166), 0 0 30px rgb(230, 89, 166), inset 2px 5px 5px #000, inset 0 0 10px rgb(230, 89, 166); */
   border-radius: 10px;
   background-color: lightpink;
   font-family: 'Port Lligat Sans';
-  font-size: 25px;
+  font-size: 15px;
   font-weight: bold;
-  padding: 15px;
+  padding: 10px;
   color: rgb(240, 86, 111);
+  text-align: center;
 }
 
 .scoreBoard {
+  border-radius: 5px 5px 5px 5px;
+  padding: 5px;
+  margin: 20px;
+  background-image: url('https://i.pinimg.com/originals/9e/0e/90/9e0e903af2fefc1e8c294af74802312f.jpg');
+  background-size: cover;
+  width: 230px;
+  height: 350px;
+  opacity: 0.8;
+}
+
+.startButton {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  text-align: center;
-  font-family: 'Port Lligat Sans';
-  font-size: 25px;
-  font-weight: bold;
-  color:  rgb(240, 86, 111);
-  border-radius: 0 30px 30px 0;
-  padding: 40px;
+}
+
+.resetButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .scoreBoard p {
-  background-color: pink;
-  border: 4px solid rgb(240, 86, 111);
+  /* padding: 15px 15px;
+  border-radius: 10px; */
+}
+
+#playerScore {
+  background-color: lightpink;
+  border: 6px solid rgb(240, 86, 111);
+  font-family: 'Port Lligat Sans';
+  color: rgb(240, 86, 111);
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'Port Lligat Sans';
+  text-align: center;
   padding: 15px 15px;
   border-radius: 10px;
-  /* animation: textShadow 1.6s infinite; */
+}
+
+#playerLives {
+  background-color: lightpink;
+  border: 6px solid rgb(240, 86, 111);
+  color: rgb(240, 86, 111);
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'Port Lligat Sans';
+  text-align: center;
+  padding: 15px 15px;
+  border-radius: 10px;
 }
 
 .grid {
   display: flex;
   flex-direction: row;
-  /* border: 2px solid black; */
+  border: 3px solid black;
+  border-radius: 5px;
   width: 40vw;
   height: 60vh;
   flex-wrap: wrap;
-  background-color: rgb(101, 124, 60);
+  background-color: rgb(102, 150, 102);
   box-shadow: 10px 10px 40px 10px rgba(0, 0, 0, 0.2);
   /* opacity: 0.9; */
 }
@@ -86,21 +127,6 @@ body {
 }
 
 .panther1 {
-  background-image: url('https://www.stickpng.com/assets/images/58b8353a15d8273a5cab2f71.png');
-  background-size: cover;
-}
-
-.panther2 {
-  background-image: url('https://www.stickpng.com/assets/images/58b8353a15d8273a5cab2f71.png');
-  background-size: cover;
-}
-
-.panther3 {
-  background-image: url('https://www.stickpng.com/assets/images/58b8353a15d8273a5cab2f71.png');
-  background-size: cover;
-}
-
-.panther4 {
   background-image: url('https://www.stickpng.com/assets/images/58b8353a15d8273a5cab2f71.png');
   background-size: cover;
 }
