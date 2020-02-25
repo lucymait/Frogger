@@ -8,6 +8,10 @@ function setupGame() {
   const playerLives = document.querySelector('#playerLives')
   const playerScore = document.querySelector('#playerScore')
   const audio = document.querySelector('#click')
+  const audio2 = document.querySelector('#gameover')
+  const gameover = document.querySelector('#gameoverblock')
+  const endScore = document.querySelector('#endScore')
+  const audio3 = document.querySelector('#life')
   let cars1Array = [126, 129, 133, 137]
   let cars2Array = [154, 157, 161, 165]
   let sharksArray = [70, 73, 75, 77, 79, 82]
@@ -72,63 +76,6 @@ function setupGame() {
   }
 
 
-  // Event Listener for keys
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowRight') {
-      audio.play()
-      if (panther1 === cells.length - 1) {
-        return
-      }
-      cells[panther1].classList.remove('panther1')
-      panther1 += 1
-      cells[panther1].classList.add('panther1')
-
-    } else if (event.key === 'ArrowLeft') {
-      audio.play()
-      if (panther1 === 0) {
-        return
-      }
-      cells[panther1].classList.remove('panther1')
-      panther1 -= 1
-      cells[panther1].classList.add('panther1')
-
-    } else if (event.key === 'ArrowUp') {
-      audio.play()
-      if (cells[panther1 - width].classList.contains('house')) {
-        cells[panther1].classList.remove('panther1')
-        panther1 -= width
-        cells[panther1].classList.remove('house')
-        cells[panther1].classList.add('panther1')
-        score += 100
-        playerScore.innerHTML = `Score: ${score}`
-        if (score >= 400) {
-          alert(`You win! Final score ${score}`)
-          window.location.reload()
-          // panther1 = 188
-          return
-        }
-        panther1 = 188
-      } else {
-        if (panther1 < width) {
-          return
-        }
-        cells[panther1].classList.remove('panther1')
-        panther1 -= width
-        cells[panther1].classList.add('panther1')
-      }
-
-
-    } else if (event.key === 'ArrowDown') {
-      audio.play()
-      if (panther1 > cells.length - width - 1) {
-        return
-      }
-      cells[panther1].classList.remove('panther1')
-      panther1 += width
-      cells[panther1].classList.add('panther1')
-    }
-  })
-
 
   // for loop for moving car, snake & shark (ensuring they loop back to original cell once hitting right wall)
 
@@ -137,6 +84,45 @@ function setupGame() {
     const playButton = document.querySelector('#themesong')
     audio1.src = 'sounds/themesong.mp3'
     audio1.play()
+
+    // Event Listener for keys
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') {
+        audio.play()
+        if (panther1 === cells.length - 1) {
+          return
+        }
+        cells[panther1].classList.remove('panther1')
+        panther1 += 1
+        cells[panther1].classList.add('panther1')
+
+      } else if (event.key === 'ArrowLeft') {
+        audio.play()
+        if (panther1 === 0) {
+          return
+        }
+        cells[panther1].classList.remove('panther1')
+        panther1 -= 1
+        cells[panther1].classList.add('panther1')
+
+      } else if (event.key === 'ArrowUp') {
+        audio.play()
+        if (panther1 < width) {
+          return
+        }
+        cells[panther1].classList.remove('panther1')
+        panther1 -= width
+        cells[panther1].classList.add('panther1')
+      } else if (event.key === 'ArrowDown') {
+        audio.play()
+        if (panther1 > cells.length - width - 1) {
+          return
+        }
+        cells[panther1].classList.remove('panther1')
+        panther1 += width
+        cells[panther1].classList.add('panther1')
+      }
+    })
 
     const firstIntervalId = setInterval(() => {
       for (let i = 0; i < cars1Array.length; i++) {
@@ -179,7 +165,7 @@ function setupGame() {
         snakesArray[i]++
         cells[snakesArray[i]].classList.add('snake')
       }
-    }, 500)
+    }, 300)
 
 
     if (intervalId !== 0) {
@@ -188,6 +174,7 @@ function setupGame() {
     const secondIntervalId = setInterval(() => {
       timerscreen.innerHTML = counter
       if (counter === 0) {
+        // audio2.play()
         // stops Interval at 0
         clearInterval(secondIntervalId)
         alert(`Your score is ${score}. Do you want to play again? `)
@@ -196,37 +183,68 @@ function setupGame() {
         // makes counter go down to 0
         counter -= 1
       }
-    },1000)
+    }, 1000)
 
 
 
     function collission() {
+      if (cells[panther1].classList.contains('house')) {
+        cells[panther1].classList.remove('house')
+        cells[panther1].classList.add('panther1')
+        score += 100
+        playerScore.innerHTML = `Score: ${score}`
+        if (score >= 400) {
+          // audio2.play()
+          alert(`You win! Final score ${score}`)
+          window.location.reload()
+          // panther1 = 188
+          return
+        }
+        panther1 = 188
+        cells[panther1].classList.add('panther1')
+      }
       if (cars1Array.includes(panther1) || cars2Array.includes(panther1) || snakesArray.includes(panther1) || sharksArray.includes(panther1) || palmtreeArray.includes(panther1)) {
         lives -= 1
         playerLives.innerHTML = `Lives: ${lives}`
         cells[panther1].classList.remove('panther1')
-        audio.play()
+        audio3.play()
         panther1 = 188
         cells[panther1].classList.add('panther1')
-      }
-      if (lives === 0) {
-        // setTimeout(function() {
-        play = confirm(`Your score is ${score}. Do you want to play again? `)
-        if (play === true) {
-          clearInterval(collissionIntervalId)
-          window.location.reload()
-        }
+      } else if (lives === 0) {
+        clearInterval(collissionIntervalId)
+        clearInterval(firstIntervalId)
+        clearInterval(secondIntervalId)
+        audio2.play()
 
-        // }, 300)
+        gameover.style.display = 'block'
+        setTimeout(() => {
+          gameover.style.display = 'none'
+          endScore.style.display = 'block'
+          endScore.innerHTML = `Your score is ${score}`
+        }, 5000)
+        setTimeout(() => {
+          play = confirm(`Your score is ${score}. Do you want to play again? `)
+          if (play === true) {
+            clearInterval(collissionIntervalId)
+            window.location.reload()
+            //add local storage (get player to submit score) - alert box 
+          }
+        }, 10000)
 
+        // audio2.play()
+        // if (play === true) {
+        // clearInterval(collissionIntervalId)
+        // window.location.reload()
+        // }
       }
     }
 
     const collissionIntervalId = setInterval(() => {
       collission()
-    }, 1)
+    }, 100)
 
   })
+
 
 }
 
