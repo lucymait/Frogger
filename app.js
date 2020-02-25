@@ -23,7 +23,10 @@ function setupGame() {
   let score = 0
   let count = 0
   let play = true
+  const timerscreen = document.querySelector('.screen')
   // cells.id = i
+  let counter = 60
+  let intervalId = 0
 
 
   // adding classes to grid (car, shark, snake, panther, styles)
@@ -101,7 +104,7 @@ function setupGame() {
         if (score >= 400) {
           alert(`You win! Final score ${score}`)
           window.location.reload()
-          panther1 = 188
+          // panther1 = 188
           return
         }
         panther1 = 188
@@ -177,6 +180,24 @@ function setupGame() {
         cells[snakesArray[i]].classList.add('snake')
       }
     }, 500)
+
+
+    if (intervalId !== 0) {
+      return
+    }
+    const secondIntervalId = setInterval(() => {
+      timerscreen.innerHTML = counter
+      if (counter === 0) {
+        // stops Interval at 0
+        clearInterval(secondIntervalId)
+        alert(`Your score is ${score}. Do you want to play again? `)
+        window.location.reload()
+      } else {
+        // makes counter go down to 0
+        counter -= 1
+      }
+    },1000)
+
 
 
     function collission() {
