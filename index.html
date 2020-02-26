@@ -13,7 +13,7 @@
   <header><img src="https://i.ya-webdesign.com/images/pink-panther-logo-png-1.png" alt="title" width="300px" height="180px"></header>
 
 <div id="gameoverblock">GAME OVER!</div>
-<div id="endScore">GAME OVER!</div>
+<div id="endScore"></div>
 
   <div class="game">
     <div class="instructions">
@@ -27,7 +27,7 @@
     <div class="scoreBoard">
         <div class="buttons">
           <button class="startButton">Start<audio id="audio1"></audio></button>
-          <button class="nextLevel">Next Level</button>
+          <button class="resetButton">Reset</button>
         </div>
         <div class="result">
           <p id="playerScore"> Score<br>
@@ -39,7 +39,12 @@
         </div>
     </div>
   </div>
-  <div class="screen">60</div>
+  <div id="leaderboard">
+    <h2>🌸🏆🌸 SCOREBOARD 🌸🏆🌸</h2>
+    <ol></ol>
+    <h3>Add Score</h3>
+  </div>
+  <div id="screen">60</div>
   <audio id="click" src="sounds/click.wav"></audio>
   <audio id="gameover" src="sounds/gameover.wav"></audio>
   <audio id="life" src="sounds/lifeloss.wav"></audio>

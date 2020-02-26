@@ -10,6 +10,7 @@ function setupGame() {
   const audio = document.querySelector('#click')
   const audio2 = document.querySelector('#gameover')
   const gameover = document.querySelector('#gameoverblock')
+  const leaderboard = document.querySelector('#leaderboard')
   const endScore = document.querySelector('#endScore')
   const audio3 = document.querySelector('#life')
   let cars1Array = [126, 129, 133, 137]
@@ -27,7 +28,7 @@ function setupGame() {
   let score = 0
   let count = 0
   let play = true
-  const timerscreen = document.querySelector('.screen')
+  const timerscreen = document.querySelector('#screen')
   // cells.id = i
   let counter = 60
   let intervalId = 0
@@ -84,6 +85,39 @@ function setupGame() {
     const playButton = document.querySelector('#themesong')
     audio1.src = 'sounds/themesong.mp3'
     audio1.play()
+
+    if (intervalId !== 0) {
+      return
+    }
+
+    const secondIntervalId = setInterval(() => {
+      timerscreen.innerHTML = counter
+      if (counter <= 5) {
+        document.getElementById('screen').style.backgroundColor = 'red'
+      }
+      if (counter === 0) {
+        audio2.play()
+        gameover.style.display = 'block'
+        setTimeout(() => {
+          gameover.style.display = 'none'
+          endScore.style.display = 'block'
+          endScore.innerHTML = `SCORE = ${score}`
+        }, 5000)
+        setTimeout(() => {
+          play = confirm(`Your score is ${score}. Do you want to play again? `)
+          if (play === true) {
+            clearInterval(collissionIntervalId)
+            window.location.reload()
+            //add local storage (get player to submit score) - alert box 
+          }
+        }, 6000)
+        window.location.reload()
+
+      } else {
+        counter -= 1
+      }
+    }, 1000)
+
 
     // Event Listener for keys
     document.addEventListener('keydown', (event) => {
@@ -168,24 +202,6 @@ function setupGame() {
     }, 300)
 
 
-    if (intervalId !== 0) {
-      return
-    }
-    const secondIntervalId = setInterval(() => {
-      timerscreen.innerHTML = counter
-      if (counter === 0) {
-        // audio2.play()
-        // stops Interval at 0
-        clearInterval(secondIntervalId)
-        alert(`Your score is ${score}. Do you want to play again? `)
-        window.location.reload()
-      } else {
-        // makes counter go down to 0
-        counter -= 1
-      }
-    }, 1000)
-
-
 
     function collission() {
       if (cells[panther1].classList.contains('house')) {
@@ -210,17 +226,22 @@ function setupGame() {
         audio3.play()
         panther1 = 188
         cells[panther1].classList.add('panther1')
+      
+        if (lives <= 1) {
+          document.getElementById('playerLives').style.backgroundColor = 'red'
+        } 
+      
       } else if (lives === 0) {
         clearInterval(collissionIntervalId)
         clearInterval(firstIntervalId)
         clearInterval(secondIntervalId)
         audio2.play()
-
         gameover.style.display = 'block'
         setTimeout(() => {
           gameover.style.display = 'none'
           endScore.style.display = 'block'
-          endScore.innerHTML = `Your score is ${score}`
+          endScore.innerHTML = `SCORE = ${score}`
+          leaderboard.style.display = 'block'
         }, 5000)
         setTimeout(() => {
           play = confirm(`Your score is ${score}. Do you want to play again? `)
@@ -229,13 +250,7 @@ function setupGame() {
             window.location.reload()
             //add local storage (get player to submit score) - alert box 
           }
-        }, 10000)
-
-        // audio2.play()
-        // if (play === true) {
-        // clearInterval(collissionIntervalId)
-        // window.location.reload()
-        // }
+        }, 20000)
       }
     }
 
@@ -244,6 +259,41 @@ function setupGame() {
     }, 100)
 
   })
+
+  function renderList(scores, scoresList) {
+    const array = scores.sort((playerA, playerB) => playerB.score - playerA.score).map(player => {
+      return `<li>
+        ${player.name} has <strong>${player.score}</strong>.
+      </li>`
+    })
+    scoresList.innerHTML = array.join('')
+  }
+  
+  function displayScore() {
+    let scores = []
+    const scoresList = document.querySelector('ol')
+    const scoreButton = document.querySelector('h3')
+  
+    if (localStorage) {
+      const players = JSON.parse(localStorage.getItem('players'))
+      if (players) {
+        scores = players
+        renderList(scores, scoresList)
+      }
+    }
+  
+    scoreButton.addEventListener('click', () => {
+      const newName = prompt('Enter your name?')
+      const newScore = prompt('What was your score?')
+      const player = { name: newName, score: newScore }
+      scores.push(player)
+      renderList(scores, scoresList)
+      if (localStorage) {
+        localStorage.setItem('players', JSON.stringify(scores))
+      }
+    })
+  
+  }
 
 
 }

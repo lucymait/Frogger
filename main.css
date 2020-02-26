@@ -26,16 +26,24 @@ body {
 
 #gameoverblock {
   background-color: black;
-  font-size: 100px;
+  font-family: 'Port Lligat Sans';
+  font-weight: bold;
+  opacity: 0.85;
+  border-radius: 40px;
+  font-size: 120px;
   color:yellow;
   animation: move 3s infinite;
   display: none;
 }
 
 #endScore {
-  background-color: black;
-  font-size: 100px;
-  color:yellow;
+  background-color: lightpink;
+  font-weight: bold;
+  font-family: 'Port Lligat Sans';
+  opacity: 0.9;
+  border-radius: 20px;
+  font-size: 70px;
+  color:rgb(240, 86, 111);
   display: none;
 }
 
@@ -83,7 +91,7 @@ p {
   height: 440px;
   background-image: url('https://i.pinimg.com/originals/9e/0e/90/9e0e903af2fefc1e8c294af74802312f.jpg');
   background-size: cover;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .scoreBoard button {
@@ -99,13 +107,13 @@ p {
   border-radius: 10px;
   font-size: 20px;
   font-weight: bold;
-  margin: 25px;
+  margin: 10px;
   text-align: center;
   font-family: 'Port Lligat Sans';
   border: 6px solid rgb(240, 86, 111);
   background-color: lightpink;
   color: black;
-  padding: 15px;
+  padding: 20px;
   opacity: 1.0;
 }
 
@@ -115,11 +123,11 @@ p {
   float: left;
   justify-content: flex-start;
   padding: 5px;
-  margin: 20px;
+  margin: 10px;
   border: 20px;
   border-radius: 5px 5px 5px 5px;
   width: 230px;
-  height: 350px;
+  height: 400px;
 }
 
 
@@ -135,7 +143,7 @@ p {
   background-size: cover;
   width: 280px;
   height: 440px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 
@@ -149,6 +157,10 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 230px;
+  height: 400px;
+  padding: 5px;
+  margin: 10px;
 }
 
 #playerScore {
@@ -160,7 +172,7 @@ p {
   font-weight: bold;
   font-family: 'Port Lligat Sans';
   text-align: center;
-  padding: 15px 15px;
+  padding: 15px;
   border-radius: 10px;
 }
 
@@ -172,7 +184,7 @@ p {
   font-weight: bold;
   font-family: 'Port Lligat Sans';
   text-align: center;
-  padding: 15px 15px;
+  padding: 15px;
   border-radius: 10px;
 }
 
@@ -248,11 +260,11 @@ div {
   background-size: cover;
 }
 
-.screen {
+#screen {
   width: 70px;
   height: 50px;
   background-color: rgb(110, 205, 236);
-  background-image: linear-gradient(300deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.5) 10%, rgba(255,255,255,0.1), rgba(255,255,255,0.1));
+  /* background-image: linear-gradient(300deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.5) 10%, rgba(255,255,255,0.1), rgba(255,255,255,0.1)); */
   border-radius: 12px;
   border: black solid 4px;
   text-align: center;
@@ -261,4 +273,47 @@ div {
   line-height: 42px;
   font-size: 40px;
   padding: 5px 8px;
+}
+
+#leaderboard {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+  background-image: url('https://m.media-amazon.com/images/M/MV5BYTc0OTBlZWUtOTM2Zi00Yjg5LTg5OTQtMmE5MTc1MGJkM2MzXkEyXkFqcGdeQXVyNTgzMTg5Ng@@._V1_.jpg');
+  background-size: cover;
+  color: whitesmoke;
+  border: black 2px solid;
+  border-radius: 30px;
+  /* display: none; */
+}
+
+h3 {
+  font-size: 10px;
+  color: white;
+  width: 100px;
+  padding: 20px;
+  margin: 20px auto;
+  text-align: center;
+  background: linear-gradient(#688e25, #325715);
+  border-radius: 30px;
+}
+
+ol {
+  font-size: 15px;
+  margin: 100px;
+  flex-grow: 1;
+  background: whitesmoke;
+  color: black;
+  border-radius: 30px;
+  height: 200px;
+  width: 200px;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 20px;
+  background: linear-gradient(#688e25, #325715);
+  border-radius: 30px;
 }
