@@ -295,10 +295,10 @@ div {
   display: flex;
   text-align: center;
   flex-direction: column;
-  width: 470px;
+  width: 600px;
   height: 450px;
   margin-top: 70px;
-  background-image: url('https://m.media-amazon.com/images/M/MV5BYTc0OTBlZWUtOTM2Zi00Yjg5LTg5OTQtMmE5MTc1MGJkM2MzXkEyXkFqcGdeQXVyNTgzMTg5Ng@@._V1_.jpg');
+  background-image: url('https://vegalleries.com/sites/default/files/art/product_images/manual/2017/jandepatie9090.jpg');
   background-size: cover;
   color: whitesmoke;
   border: black 2px solid;
@@ -314,7 +314,8 @@ h3 {
   padding: 10px;
   margin: 20px auto;
   text-align: center;
-  background: linear-gradient(#688e25, #325715);
+  background: black;
+  opacity: 0.8;
   border-radius: 30px;
   font-family: 'Port Lligat Sans';
   font-weight: bold;
@@ -327,9 +328,9 @@ ol {
   font-weight: bold;
   margin: 20px;
   flex-grow: 1;
-  background: whitesmoke;
-  opacity: 0.9;
-  color: black;
+  background: black;
+  opacity: 0.8;
+  color: white;
   border-radius: 30px;
   height: 300px;
   width: 300px;
@@ -338,7 +339,8 @@ ol {
 h2 {
   font-size: 25px;
   margin: 20px;
-  background: linear-gradient(#688e25, #325715);
+  background: black;
+  opacity: 0.8;
   border-radius: 30px;
   font-family: 'Port Lligat Sans';
   font-weight: bold;
