@@ -1,5 +1,6 @@
 function setupGame() {
 
+
   const width = 14
   const gridCellCount = width * width
   const grid = document.querySelector('.grid')
@@ -10,6 +11,7 @@ function setupGame() {
   const audio = document.querySelector('#click')
   const audio2 = document.querySelector('#gameover')
   const gameover = document.querySelector('#gameoverblock')
+  const wingame = document.querySelector('#wingame')
   const leaderboard = document.querySelector('#leaderboard')
   const endScore = document.querySelector('#endScore')
   const audio3 = document.querySelector('#life')
@@ -102,6 +104,7 @@ function setupGame() {
           gameover.style.display = 'none'
           endScore.style.display = 'block'
           endScore.innerHTML = `SCORE = ${score}`
+          leaderboard.style.display = 'block'
         }, 5000)
         setTimeout(() => {
           play = confirm(`Your score is ${score}. Do you want to play again? `)
@@ -199,7 +202,7 @@ function setupGame() {
         snakesArray[i]++
         cells[snakesArray[i]].classList.add('snake')
       }
-    }, 300)
+    }, 10000)
 
 
 
@@ -210,9 +213,31 @@ function setupGame() {
         score += 100
         playerScore.innerHTML = `Score: ${score}`
         if (score >= 400) {
+          clearInterval(collissionIntervalId)
+          clearInterval(firstIntervalId)
+          clearInterval(secondIntervalId)
+          audio2.play()
+          wingame.style.display = 'block'
+          setTimeout(() => {
+            gameover.style.display = 'none'
+            endScore.style.display = 'block'
+            endScore.innerHTML = `SCORE = ${score}`
+            leaderboard.style.display = 'block'
+          }, 5000)
+          setTimeout(() => {
+            displayScore()
+          }, 5000)
+          setTimeout(() => {
+            play = confirm(`Your score is ${score}. Do you want to play again? `)
+            if (play === true) {
+              clearInterval(collissionIntervalId)
+              window.location.reload()
+            }
+          }, 9000)
+          // leaderboard.style.display = 'block'
           // audio2.play()
-          alert(`You win! Final score ${score}`)
-          window.location.reload()
+          // alert(`You win! Final score ${score}`)
+          // window.location.reload()
           // panther1 = 188
           return
         }
@@ -253,7 +278,7 @@ function setupGame() {
             window.location.reload()
             //add local storage (get player to submit score) - alert box 
           }
-        }, 8000)
+        }, 9000)
       }
     }
 
@@ -302,7 +327,6 @@ function setupGame() {
 
 
 }
-
 
 
 window.addEventListener('DOMContentLoaded', setupGame)
