@@ -6,6 +6,7 @@ function setupGame() {
   const grid = document.querySelector('.grid')
   const cells = []
   const startButton = document.querySelector('.startButton')
+  const resetButton = document.querySelector('.resetButton')
   const playerLives = document.querySelector('#playerLives')
   const playerScore = document.querySelector('#playerScore')
   const audio = document.querySelector('#click')
@@ -78,8 +79,6 @@ function setupGame() {
     cells.push(cell)
     grid.appendChild(cell)
   }
-
-
 
   // for loop for moving car, snake & shark (ensuring they loop back to original cell once hitting right wall)
 
@@ -239,11 +238,6 @@ function setupGame() {
               window.location.reload()
             }
           }, 9000)
-          // leaderboard.style.display = 'block'
-          // audio2.play()
-          // alert(`You win! Final score ${score}`)
-          // window.location.reload()
-          // panther1 = 188
           return
         }
         panther1 = 188
@@ -291,6 +285,14 @@ function setupGame() {
       collission()
     }, 100)
 
+    resetButton.addEventListener('click', () => {
+      clearInterval(collissionIntervalId)
+      clearInterval(firstIntervalId)
+      clearInterval(secondIntervalId)
+      play = confirm(`Your score is ${score}. Do you want to play again? `)
+      window.location.reload()
+    })
+
   })
 
   function renderList(scores, scoresList) {
@@ -328,8 +330,6 @@ function setupGame() {
     })
   
   }
-
-
 
 }
 
