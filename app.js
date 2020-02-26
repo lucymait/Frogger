@@ -15,6 +15,7 @@ function setupGame() {
   const leaderboard = document.querySelector('#leaderboard')
   const endScore = document.querySelector('#endScore')
   const audio3 = document.querySelector('#life')
+  const audio4 = document.querySelector('#victory')
   let cars1Array = [126, 129, 133, 137]
   let cars2Array = [154, 157, 161, 165]
   let sharksArray = [70, 73, 75, 77, 79, 82]
@@ -32,7 +33,7 @@ function setupGame() {
   let play = true
   const timerscreen = document.querySelector('#screen')
   // cells.id = i
-  let counter = 60
+  let counter = 10
   let intervalId = 0
 
 
@@ -98,6 +99,9 @@ function setupGame() {
         document.getElementById('screen').style.backgroundColor = 'red'
       }
       if (counter === 0) {
+        clearInterval(collissionIntervalId)
+        clearInterval(firstIntervalId)
+        clearInterval(secondIntervalId)
         audio2.play()
         gameover.style.display = 'block'
         setTimeout(() => {
@@ -107,14 +111,15 @@ function setupGame() {
           leaderboard.style.display = 'block'
         }, 5000)
         setTimeout(() => {
+          displayScore()
+        }, 5000)
+        setTimeout(() => {
           play = confirm(`Your score is ${score}. Do you want to play again? `)
           if (play === true) {
             clearInterval(collissionIntervalId)
             window.location.reload()
-            //add local storage (get player to submit score) - alert box 
           }
-        }, 6000)
-        window.location.reload()
+        }, 10000)
 
       } else {
         counter -= 1
@@ -202,7 +207,7 @@ function setupGame() {
         snakesArray[i]++
         cells[snakesArray[i]].classList.add('snake')
       }
-    }, 10000)
+    }, 400)
 
 
 
@@ -216,10 +221,10 @@ function setupGame() {
           clearInterval(collissionIntervalId)
           clearInterval(firstIntervalId)
           clearInterval(secondIntervalId)
-          audio2.play()
+          audio4.play()
           wingame.style.display = 'block'
           setTimeout(() => {
-            gameover.style.display = 'none'
+            wingame.style.display = 'none'
             endScore.style.display = 'block'
             endScore.innerHTML = `SCORE = ${score}`
             leaderboard.style.display = 'block'

@@ -48,7 +48,7 @@ body {
 }
 
 #wingame {
-  background-color: black;
+  background-color:green;
   font-family: 'Port Lligat Sans';
   font-weight: bold;
   opacity: 0.85;
@@ -295,8 +295,9 @@ div {
   display: flex;
   text-align: center;
   flex-direction: column;
-  width: 570px;
-  height: 650px;
+  width: 470px;
+  height: 450px;
+  margin-top: 70px;
   background-image: url('https://m.media-amazon.com/images/M/MV5BYTc0OTBlZWUtOTM2Zi00Yjg5LTg5OTQtMmE5MTc1MGJkM2MzXkEyXkFqcGdeQXVyNTgzMTg5Ng@@._V1_.jpg');
   background-size: cover;
   color: whitesmoke;
@@ -307,38 +308,41 @@ div {
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 15px;
   color: white;
   width: 150px;
-  padding: 20px;
+  padding: 10px;
   margin: 20px auto;
   text-align: center;
   background: linear-gradient(#688e25, #325715);
   border-radius: 30px;
   font-family: 'Port Lligat Sans';
   font-weight: bold;
+  align-items: center;
 }
 
 ol {
   font-size: 15px;
-  margin: 60px;
+  font-family: 'Port Lligat Sans';
+  font-weight: bold;
+  margin: 20px;
   flex-grow: 1;
   background: whitesmoke;
   opacity: 0.9;
   color: black;
   border-radius: 30px;
-  align-items: center;
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 25px;
   margin: 20px;
   background: linear-gradient(#688e25, #325715);
   border-radius: 30px;
   font-family: 'Port Lligat Sans';
   font-weight: bold;
-  width: 500px;
+  width: 300px;
   height: 50px;
+  align-items: center;
 }
