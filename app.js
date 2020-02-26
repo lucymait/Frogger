@@ -244,13 +244,16 @@ function setupGame() {
           leaderboard.style.display = 'block'
         }, 5000)
         setTimeout(() => {
+          displayScore()
+        }, 5000)
+        setTimeout(() => {
           play = confirm(`Your score is ${score}. Do you want to play again? `)
           if (play === true) {
             clearInterval(collissionIntervalId)
             window.location.reload()
             //add local storage (get player to submit score) - alert box 
           }
-        }, 20000)
+        }, 8000)
       }
     }
 
@@ -272,7 +275,7 @@ function setupGame() {
   function displayScore() {
     let scores = []
     const scoresList = document.querySelector('ol')
-    const scoreButton = document.querySelector('h3')
+    const scoreButton = document.querySelector('#score-enter')
   
     if (localStorage) {
       const players = JSON.parse(localStorage.getItem('players'))
@@ -283,6 +286,7 @@ function setupGame() {
     }
   
     scoreButton.addEventListener('click', () => {
+      console.log(scores)
       const newName = prompt('Enter your name?')
       const newScore = prompt('What was your score?')
       const player = { name: newName, score: newScore }
@@ -294,6 +298,7 @@ function setupGame() {
     })
   
   }
+
 
 
 }
