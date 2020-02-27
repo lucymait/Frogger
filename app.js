@@ -298,7 +298,7 @@ function setupGame() {
   function renderList(scores, scoresList) {
     const array = scores.sort((playerA, playerB) => playerB.score - playerA.score).map(player => {
       return `<li>
-        ${player.name} has <strong>${player.score}</strong>.
+        ${player.name} = <strong>${player.score} points</strong>.
       </li>`
     })
     scoresList.innerHTML = array.join('')
