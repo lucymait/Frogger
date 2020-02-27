@@ -10,22 +10,31 @@ Given a list of options from GA, I chose to re-create the classic game **Frogger
 
 You can launch the game on GitHub pages [here](https://lucymait.github.io/project-1/)
 
+## How to play
+
+Use ← ↑ → ↓ arrow keys to move the player
+Avoid enemies
+Collect plenty gems to achieve a high score!
+Win by jumping on the water
+
 ## Brief
 
 - **Render a game in the browser**
 - **Design logic for winning & visually display scoreboard**
 - **Include separate HTML / CSS / JavaScript files**
+- Stick with **KISS (Keep It Simple Stupid)** and **DRY (Don't Repeat Yourself)** principles
 - Use **Javascript** for **DOM manipulation**
 - **Deploy your game online**, where the rest of the world can access it
 - Use **semantic markup** for HTML and CSS (adhere to best practices)
 
-## Technologies used ![Sock](/images/sock.png)
+## Technologies Used
 
 - HTML
 - CSS
 - JavaScript (ES6)
 - Git and GitHub
 - Google Fonts
+- freesound
 
 ## Approach
 
@@ -45,6 +54,19 @@ You can launch the game on GitHub pages [here](https://lucymait.github.io/projec
 
 ## Screenshots
 
+![Gameplay](/images/gamescreen.png)
+
+![Countdown screen](/images/countdown.png)
+
+![Victory screen](/images/screenshots/victory-screen.png)
+
+![Gameover screen](/images/gameover.png)
+
+![Scoreboard screen](/images/scoreboard.png)
+
 ## Potential future features
+Levels of difficulty
+Modal in the beginning for the player to choose character
+More & better sounds
 
 ## Lessons learned
