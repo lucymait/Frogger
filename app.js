@@ -34,7 +34,7 @@ function setupGame() {
   let play = true
   const timerscreen = document.querySelector('#screen')
   // cells.id = i
-  let counter = 10
+  let counter = 30
   let intervalId = 0
 
 
