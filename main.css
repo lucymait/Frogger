@@ -119,7 +119,7 @@ p {
   border-radius: 20px;
   width: 280px;
   height: 440px;
-  background-image: url('https://i.pinimg.com/originals/9e/0e/90/9e0e903af2fefc1e8c294af74802312f.jpg');
+  background-image: url('images/instructions.jpg');
   background-size: cover;
   opacity: 0.9;
   /* display: none; */
@@ -244,27 +244,27 @@ p {
 }
 
 .panther1 {
-  background-image: url('https://www.stickpng.com/assets/images/58b8353a15d8273a5cab2f71.png');
+  background-image: url('images/panther.png');
   background-size: cover;
 }
 
 .car {
-  background-image: url('https://img.icons8.com/plasticine/2x/car.png');
+  background-image: url('images/car.png');
   background-size: cover;
 }
 
 .shark {
-  background-image: url('https://images.vexels.com/media/users/3/160166/isolated/preview/51e2686a7699151f68f7a9424a2efe06-cute-shark-fin-tooth-flat-by-vexels.png');
+  background-image: url('images/shark.png');
   background-size: cover;
 }
 
 .snake {
-  background-image: url('https://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/512/22285-snake-icon.png');
+  background-image: url('images/snake.png');
   background-size: cover;
 }
 
 .house {
-  background-image: url('https://www.stickpng.com/assets/thumbs/588a66aad06f6719692a2d1d.png');
+  background-image: url('images/house.png');
   background-size: cover;
 }
 
@@ -292,7 +292,7 @@ div {
 }
 
 .palmtree {
-  background-image: url('https://i.pinimg.com/originals/94/4a/e4/944ae49b7d142ce2d0fdd5c2efd720ca.png');
+  background-image: url('images/palmtree.png');
   background-size: cover;
 }
 
