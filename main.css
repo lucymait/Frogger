@@ -104,7 +104,7 @@ h4 {
 p {
   font-family: 'Port Lligat Sans';
   padding: 5px;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 0 20px 0;
   color: black;
 }
@@ -142,8 +142,8 @@ p {
   margin-right: 0px;
   text-align: center;
   font-family: 'Port Lligat Sans';
-  border: 6px solid rgb(240, 86, 111);
-  background-color: lightpink;
+  border: 6px solid rgb(74, 190, 74);
+  background-color: rgb(142, 207, 142);
   color: black;
   padding: 30px;
   opacity: 1.0;
@@ -199,8 +199,8 @@ p {
 }
 
 #playerScore {
-  background-color: lightpink;
-  border: 6px solid rgb(240, 86, 111);
+  background-color:rgb(89, 197, 240);
+  border: 6px solid rgb(43, 123, 214);
   font-family: 'Port Lligat Sans';
   color: black;
   font-size: 20px;
@@ -212,8 +212,8 @@ p {
 }
 
 #playerLives {
-  background-color: lightpink;
-  border: 6px solid rgb(240, 86, 111);
+  background-color:rgb(89, 197, 240);
+  border: 6px solid rgb(43, 123, 214);
   color: black;
   font-size: 20px;
   font-weight: bold;

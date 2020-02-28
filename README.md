@@ -296,8 +296,8 @@ function renderList(scores, scoresList) {
 ![Scoreboard screen](/images/scoreboardpic.png)
 
 ## Potential future features
-Levels of difficulty
-Option in the beginning for the player to choose different characters
-More & better sounds
+- Levels of difficulty
+- Option in the beginning for the player to choose different characters
+- More & better sounds
 
 ## Lessons learned
