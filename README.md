@@ -289,7 +289,7 @@ function renderList(scores, scoresList) {
 
 ![Countdown screen](/images/countdown.png)
 
-![Victory screen](/images/screenshots/victory-screen.png)
+![Victory screen](/images/victory.png)
 
 ![Gameover screen](/images/gameover.png)
 
