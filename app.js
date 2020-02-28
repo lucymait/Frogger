@@ -277,7 +277,6 @@ function setupGame() {
           if (play === true) {
             clearInterval(collissionIntervalId)
             window.location.reload()
-            //add local storage (get player to submit score) - alert box 
           }
         }, 9000)
       }

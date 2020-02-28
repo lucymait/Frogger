@@ -293,7 +293,7 @@ function renderList(scores, scoresList) {
 
 ![Gameover screen](/images/gameover.png)
 
-![Scoreboard screen](/images/scoreboard.png)
+![Scoreboard screen](/images/scoreboardpic.png)
 
 ## Potential future features
 Levels of difficulty
