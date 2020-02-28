@@ -6,16 +6,16 @@
 
 This is my first project of the software engineering immersive course at GA London. The assignment was to create a grid-based game to be rendered in the browser, using HTML, CSS and JavaScript. The project was to be completed **individually** within **one week**.
 
-Given a list of options from GA, I chose to re-create the classic game **Frogger**. Please note that while the game is designed in terms of roombas and cats, this documentation is written in terms of the original Pac-Man lingo, e.g. referring to _ghosts_ and _energizers_, as the underlying code also uses this jargon. 
+Given a list of options from GA, I chose to re-create the classic game **Frogger**. Please note that while the game is designed in a pink panther theme, this documentation is written in terms of the original Frogger lingo, e.g. moving obstacles, as the underlying code. 
 
 You can launch the game on GitHub pages [here](https://lucymait.github.io/project-1/)
 
 ## How to play
 
 Use ← ↑ → ↓ arrow keys to move the player
-Avoid enemies
-Collect plenty gems to achieve a high score!
-Win by jumping on the water
+Avoid moving obstacles 
+Get each panther home to collect points!
+Win by getting all 4 panthers home
 
 ## Brief
 
@@ -37,6 +37,63 @@ Win by jumping on the water
 - freesound
 
 ## Approach
+
+### The Grid
+
+The game is built using a grid. A 14 x 14 square is created using JavaScript. HTML divs are created using a for loop and appended as children of the grid.
+
+ ```js
+  const width = 14
+  const gridCellCount = width * width
+  const grid = document.querySelector('.grid')
+  const cells = []
+  let panther1 = 188
+
+ 
+    for (let i = 0; i < gridCellCount; i++) {
+    const cell = document.createElement('div')
+    cell.classList.add('cell')
+    cell.innerHTML = i
+    if (i === panther1) {
+      cell.classList.add('panther1')
+    }
+    if (cars1Array.includes(i)) {
+      cell.classList.add('car')
+    }
+    if (cars2Array.includes(i)) {
+      cell.classList.add('car')
+    }
+    if (sharksArray.includes(i)) {
+      cell.classList.add('shark')
+    }
+    if (snakesArray.includes(i)) {
+      cell.classList.add('snake')
+    }
+    if (housesArray.includes(i)) {
+      cell.classList.add('house')
+    }
+    if (roadArray.includes(i)) {
+      cell.classList.add('road')
+    }
+    if (roadMarkerArray.includes(i)) {
+      cell.classList.add('roadMarker')
+    }
+    if (waterArray.includes(i)) {
+      cell.classList.add('water')
+    }
+    if (pavementArray.includes(i)) {
+      cell.classList.add('pavement')
+    }
+    if (palmtreeArray.includes(i)) {
+      cell.classList.add('palmtree')
+    }
+    cells.push(cell)
+    grid.appendChild(cell)
+  }
+ ```
+ During actual gameplay, the grid isn't visible, but is highlighed below for demonstration purposes:
+ 
+ ![](./assets/screenshots/GridScreenshot.png)
 
 ### Board layout 
 
@@ -66,7 +123,7 @@ Win by jumping on the water
 
 ## Potential future features
 Levels of difficulty
-Modal in the beginning for the player to choose character
+Option in the beginning for the player to choose different characters
 More & better sounds
 
 ## Lessons learned

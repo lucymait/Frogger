@@ -17,6 +17,7 @@ function setupGame() {
   const endScore = document.querySelector('#endScore')
   const audio3 = document.querySelector('#life')
   const audio4 = document.querySelector('#victory')
+  const audio5 = document.querySelector('#door')
   let cars1Array = [126, 129, 133, 137]
   let cars2Array = [154, 157, 161, 165]
   let sharksArray = [70, 73, 75, 77, 79, 82]
@@ -42,7 +43,7 @@ function setupGame() {
   for (let i = 0; i < gridCellCount; i++) {
     const cell = document.createElement('div')
     cell.classList.add('cell')
-    // cell.innerHTML = i
+    cell.innerHTML = i
     if (i === panther1) {
       cell.classList.add('panther1')
     }
@@ -214,6 +215,7 @@ function setupGame() {
       if (cells[panther1].classList.contains('house')) {
         cells[panther1].classList.remove('house')
         cells[panther1].classList.add('panther1')
+        audio5.play()
         score += 100
         playerScore.innerHTML = `Score: ${score}`
         if (score >= 400) {
