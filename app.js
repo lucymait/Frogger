@@ -43,7 +43,7 @@ function setupGame() {
   for (let i = 0; i < gridCellCount; i++) {
     const cell = document.createElement('div')
     cell.classList.add('cell')
-    cell.innerHTML = i
+    // cell.innerHTML = i
     if (i === panther1) {
       cell.classList.add('panther1')
     }
@@ -119,7 +119,7 @@ function setupGame() {
             clearInterval(collissionIntervalId)
             window.location.reload()
           }
-        }, 10000)
+        }, 10500)
 
       } else {
         counter -= 1
@@ -207,7 +207,7 @@ function setupGame() {
         snakesArray[i]++
         cells[snakesArray[i]].classList.add('snake')
       }
-    }, 400)
+    }, 350)
 
 
 
