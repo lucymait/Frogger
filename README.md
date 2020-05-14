@@ -380,6 +380,9 @@ Sounds were added to give the user a proper experience when playing the game:
 - More & better sounds
 - Making this game mobile friendly. 
 
+## Biggest Challenge & Wins 
+- My biggest challenge was the Gameover section as I had to clear interval then display the player's final score and finally allow the player to enter their score to the leaderboard. I managed to solve this problem by using local storage to store the players score.
+
 ## Lessons learned
 - Design mobile first
 - Make sure to create a detailed plan at the start to minimize back and forth and having to reconfigure your code. 
