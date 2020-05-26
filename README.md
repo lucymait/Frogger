@@ -24,7 +24,7 @@ You can launch the game on GitHub pages [here](https://lucymait.github.io/projec
 - **Include separate HTML / CSS / JavaScript files**
 - Stick with **KISS (Keep It Simple Stupid)** and **DRY (Don't Repeat Yourself)** principles
 - Use **Javascript** for **DOM manipulation**
-- **Deploy your game online**, where the rest of the world can access it
+- **Deploy the game online**, where the rest of the world can access it
 - Use **semantic markup** for HTML and CSS (adhere to best practices)
 
 ## Technologies Used
@@ -49,7 +49,7 @@ The game is built using a grid. A 14 x 14 square is created using JavaScript. Ne
   const cells = []
   let panther1 = 188
   ```
-HTML divs are created using a for loop and appended as children of the grid. ClassList was used to add all the image icons to the grid e.g. panther, cars, sharks, snakes, palm trees and houses.
+HTML divs are created using a for loop and appended as children of the grid. ClassList was used to add all the image icons to the grid, e.g. panther, cars, sharks, snakes, palm trees and houses.
 
   ```js
     for (let i = 0; i < gridCellCount; i++) {
@@ -101,7 +101,7 @@ HTML divs are created using a for loop and appended as children of the grid. Cla
 
 ### Objects movement 
 
-A set interval was used, with a for loop, to move each array of objects. Once the objects reached the end of each row, **classlist.remove** was used to remove the array and then **classlist.add**, added the array back to the start of the row.
+A set interval was used, with a for loop, to move each array of objects. Once the objects reached the end of each row, **classlist.remove** was used to remove the array and then **classlist.add** added the array back to the start of the row.
 
 ```js
   const firstIntervalId = setInterval(() => {
@@ -150,9 +150,9 @@ A set interval was used, with a for loop, to move each array of objects. Once th
 
 ### Game timing 
 
-A let was used in our app.js to start our counter at 30 (seconds)
+A ```let``` was used in our app.js to start our counter at 30 (seconds).
 
-Next, a setInterval was used to add a reduce the counter every second. Another if statement was used to turn the id 'screen' to red when the counter drops below 5. 
+Next, a setInterval was used to add a reduce the counter every second. Another, if statement was used to turn the id 'screen' to red when the counter drops below 5. 
 
 When the counter reaches 0, all the intervals are cleared, the gameover sound is played and the pop up box is displayed. Similar to the collission, the displayScore function is called, whereby the player can enter their score and/or choose to play again. This score is stored in localStorage.
 
@@ -378,11 +378,11 @@ Sounds were added to give the user a proper experience when playing the game:
 - Levels of difficulty
 - Option in the beginning for the player to choose different characters
 - More & better sounds
-- Making this game mobile friendly. 
+- Making it mobile friendly
 
 ## Biggest Challenge & Wins 
-- My biggest challenge was the Gameover section as I had to clear interval then display the player's final score and finally allow the player to enter their score to the leaderboard. I managed to solve this problem by using local storage to store the players score.
+- My biggest challenge was the Gameover section, as I had to clear interval then display the player's final score and finally allow the player to enter their score to the leaderboard. I managed to solve this problem by using local storage to store the players score.
 
 ## Lessons learned
-- Design mobile first
+- Design mobile first.
 - Make sure to create a detailed plan at the start to minimize back and forth and having to reconfigure your code. 
